@@ -13,6 +13,8 @@ on:
 
 jobs:
   test:
+    # Preserve the required x64 check names when adding the ARM64 matrix entry.
+    name: test (${{ matrix.python-version }}${{ matrix.os == 'ubuntu-24.04-arm' && ', ARM64' || '' }})
     runs-on: ${{ matrix.os }}
     strategy:
       matrix:
